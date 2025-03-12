@@ -1,12 +1,24 @@
-This is a nuget-based wrapper for libvosk library
+# Voice Recognition
 
-See demo folder for example how to use the library. You can simply run
-"dotnet run" to run the demo. Make sure you unpacked the model and the
-test file.
+Проект для распознавания речи с использованием Vosk.
 
-See the nuget folder for the sources of the wrapper. Run build.sh to
-build nuget package.
+## Структура проекта
+- demo/ - основной код проекта
+- nuget/ - пакеты NuGet
+- models/ - папка для моделей Vosk (не включена в репозиторий)
 
-Note we only support win64 and linux64 for now. No support for win32
-since it is a little bit painful to load the libraries depending on
-architecture. In theory we can add OSX some time or even Android.
+## Установка
+
+1. Склонируйте репозиторий
+2. Скачайте модели Vosk ( https://alphacephei.com/vosk/models ) и поместите их в папку models/
+   - vosk-model-small-ru-0.22
+   - vosk-model-ru-0.42
+3. Перейдите в папку demo
+4. Запустите проект: dotnet run
+
+## Использование
+
+1. Загрузите модель
+2. Выберите микрофон(ы)
+3. Начните запись
+4. Нажмите 5 для остановки записи
