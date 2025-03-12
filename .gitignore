@@ -2,6 +2,7 @@ bin/
 obj/
 .vs/
 *.user
+*.pdb
 
 # Ignore models content but track the folder
 models/*
@@ -9,3 +10,10 @@ models/*
 
 # Ignore transcription files
 transcription/
+
+# Allow only exe in release
+release/*
+!release/VoskDemo.exe
+!release/models/
+release/models/*
+!release/models/.gitkeep
