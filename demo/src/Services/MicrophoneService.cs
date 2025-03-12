@@ -63,6 +63,8 @@ namespace VoskDemo.Services
         {
             Console.WriteLine("\nВыберите номера микрофонов через запятую (например: 1,2,3):");
             var input = Console.ReadLine();
+            if (input == null) return;
+
             var selectedIndexes = input.Split(',')
                 .Select(x => int.TryParse(x.Trim(), out int num) ? num - 1 : -1)
                 .Where(x => x >= 0 && x < availableDevices.Count)
@@ -73,7 +75,11 @@ namespace VoskDemo.Services
             {
                 foreach (var index in selectedIndexes)
                 {
-                    InitializeDevice(index, availableDevices[index], index + 1);
+                    var device = availableDevices[index];
+                    if (device != null)
+                    {
+                        InitializeDevice(index, device, index + 1);
+                    }
                 }
                 DisplaySelectedDevices();
             }
@@ -86,12 +92,17 @@ namespace VoskDemo.Services
         private void HandleSingleModeSelection(List<MMDevice> availableDevices)
         {
             Console.Write("\nВыберите номер микрофона: ");
-            if (int.TryParse(Console.ReadLine(), out int deviceNumber) && 
+            var input = Console.ReadLine();
+            if (input != null && int.TryParse(input, out int deviceNumber) && 
                 deviceNumber > 0 && 
                 deviceNumber <= availableDevices.Count)
             {
-                InitializeDevice(deviceNumber - 1, availableDevices[deviceNumber - 1], deviceNumber);
-                Console.WriteLine($"Выбран микрофон: {availableDevices[deviceNumber - 1].FriendlyName}");
+                var device = availableDevices[deviceNumber - 1];
+                if (device != null)
+                {
+                    InitializeDevice(deviceNumber - 1, device, deviceNumber);
+                    Console.WriteLine($"Выбран микрофон: {device.FriendlyName}");
+                }
             }
             else
             {

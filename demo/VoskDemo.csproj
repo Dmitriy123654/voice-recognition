@@ -6,6 +6,12 @@
     <RootNamespace>VoskDemo</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,6 +19,7 @@
       <!-- https://api.nuget.org/v3/index.json;
       $(RestoreSources); -->
       ../nuget
+
     </RestoreSources>
   </PropertyGroup>
 

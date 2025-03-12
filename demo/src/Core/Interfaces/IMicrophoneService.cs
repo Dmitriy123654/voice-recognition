@@ -1,8 +1,8 @@
 public interface IMicrophoneService
 {
     bool IsInitialized { get; }
+    string? CurrentMicrophoneName { get; }
     bool IsMultiMode { get; }
-    string CurrentMicrophoneName { get; }
     
     void SelectMicrophones(bool multiMode = false);
     void StartRecording();

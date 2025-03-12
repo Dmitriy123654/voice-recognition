@@ -56,7 +56,9 @@ namespace VoskDemo.UI
 
         private async Task<bool> HandleMenuChoiceAsync()
         {
-            string choice = Console.ReadLine();
+            var choice = Console.ReadLine();
+            if (choice == null) return true;
+
             switch (choice)
             {
                 case "1":
@@ -98,14 +100,25 @@ namespace VoskDemo.UI
                 Console.WriteLine("2. Большая модель (медленнее, более точная)");
                 Console.Write("\nВыберите модель (1-2): ");
 
-                string choice = Console.ReadLine();
+                var choice = Console.ReadLine();
+                if (choice == null)
+                {
+                    Console.WriteLine("Неверный ввод. Используется модель по умолчанию (1)");
+                    choice = "1";
+                }
+
                 if (!_config.AvailableModels.ContainsKey(choice))
                 {
                     Console.WriteLine("Неверный выбор модели. Используется модель по умолчанию (1)");
                     choice = "1";
                 }
 
-                string modelPath = _config.AvailableModels[choice];
+                var modelPath = _config.AvailableModels[choice];
+                if (modelPath == null)
+                {
+                    throw new InvalidOperationException("Путь к модели не может быть null");
+                }
+
                 Console.WriteLine($"\nЗагрузка модели из: {modelPath}");
                 
                 if (!Directory.Exists(modelPath))
@@ -186,6 +199,8 @@ namespace VoskDemo.UI
 
         private void ProcessRecognitionResult(string result, string deviceName, int deviceId)
         {
+            if (string.IsNullOrEmpty(result)) return;
+
             var text = System.Text.Json.JsonDocument
                 .Parse(result)
                 .RootElement

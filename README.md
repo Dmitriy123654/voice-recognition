@@ -2,9 +2,18 @@
 
 Проект для распознавания речи с использованием Vosk.
 
+## Быстрый старт
+
+1. Скачайте и распакуйте архив с программой
+2. Скачайте модели Vosk для русского языка(https://alphacephei.com/vosk/models):
+   - [vosk-model-small-ru-0.22](https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip)
+   - [vosk-model-ru-0.42](https://alphacephei.com/vosk/models/vosk-model-ru-0.42.zip)
+3. Распакуйте модели в папку models/ рядом с exe файлом:
+
 ## Требования
 
-- .NET 6.0 SDK ([скачать](https://dotnet.microsoft.com/download/dotnet/6.0))
+- Windows x64
+- Для сборки из исходников: .NET 6.0 SDK ([скачать](https://dotnet.microsoft.com/download/dotnet/6.0))
 
 ## Установка
 

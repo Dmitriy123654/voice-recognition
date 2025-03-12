@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using VoskDemo.Core.Models;
+using NAudio.CoreAudioApi;
+using System.Linq;
 
 namespace VoskDemo.Services
 {
@@ -81,7 +83,7 @@ namespace VoskDemo.Services
             return true;
         }
 
-        private MicrophoneDevice SelectDevice(string action)
+        private MicrophoneDevice? SelectDevice(string action)
         {
             if (_devices.Count == 1)
                 return _devices[0];
@@ -109,6 +111,13 @@ namespace VoskDemo.Services
         {
             Console.WriteLine("\nНажмите любую клавишу для продолжения...");
             Console.ReadKey();
+        }
+
+        private MMDevice? FindDevice(string name)
+        {
+            var enumerator = new MMDeviceEnumerator();
+            return enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active)
+                .FirstOrDefault(d => d.FriendlyName.Contains(name));
         }
     }
 } 
