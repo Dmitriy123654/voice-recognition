@@ -3,7 +3,7 @@ obj/
 .vs/
 *.user
 
-# Ignore models folder except .gitkeep
+# Ignore models content but track the folder
 models/*
 !models/.gitkeep
 

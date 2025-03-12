@@ -12,7 +12,7 @@ namespace VoskDemo.Core.Models
         public string Name { get; }
         public int Id { get; }
         public DateTime LastReset { get; set; }
-        public VoskRecognizer Recognizer { get; set; }
+        public VoskRecognizer? Recognizer { get; set; }
 
         public MicrophoneDevice(MMDevice device, WaveInEvent waveIn, string name, int id)
         {

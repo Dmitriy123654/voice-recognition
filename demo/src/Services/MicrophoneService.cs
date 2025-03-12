@@ -10,12 +10,12 @@ namespace VoskDemo.Services
 {
     public class MicrophoneService : IMicrophoneService
     {
-        private List<MicrophoneDevice> _devices = new();
-        private Action<byte[], int, string, int> _dataAvailableCallback;
+        private readonly List<MicrophoneDevice> _devices = new();
+        private Action<byte[], int, string, int>? _dataAvailableCallback;
         private bool _isMultiMode = false;
 
         public bool IsInitialized => _devices.Any();
-        public string CurrentMicrophoneName => _devices.FirstOrDefault()?.Name;
+        public string? CurrentMicrophoneName => _devices.FirstOrDefault()?.Name;
         public bool IsMultiMode => _isMultiMode;
 
         public void SelectMicrophones(bool multiMode = false)
@@ -168,7 +168,7 @@ namespace VoskDemo.Services
             configurator.Configure();
         }
 
-        public void SetDataCallback(Action<byte[], int, string, int> callback)
+        public void SetDataCallback(Action<byte[], int, string, int>? callback)
         {
             _dataAvailableCallback = callback;
         }

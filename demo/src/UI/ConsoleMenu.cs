@@ -15,7 +15,7 @@ namespace VoskDemo.UI
         private readonly ITranscriptionService _transcriptionService;
         private readonly VoskConfiguration _config;
         private bool _isRecording;
-        private Model _model;
+        private Model? _model;
         private Dictionary<string, (VoskRecognizer Recognizer, DateTime LastReset)> _recognizers = new();
 
         public ConsoleMenu(

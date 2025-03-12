@@ -7,7 +7,7 @@ namespace VoskDemo.Services
 {
     public class VoskService : IVoskService
     {
-        private Model _model;
+        private Model? _model;
         private readonly object _lock = new();
 
         public async Task<Model> GetModelAsync(string modelPath, bool verbose = true)
@@ -26,7 +26,7 @@ namespace VoskDemo.Services
                     }
                 });
             }
-            return _model;
+            return _model!;
         }
 
         public void Cleanup()

@@ -4,7 +4,7 @@
 
 ## Установка
 
-1. Скачайте модели Vosk и разместите их в папке models/:
+1. Скачайте модели Vosk для русского языка(https://alphacephei.com/vosk/models) и разместите их в папке models/:
    - [vosk-model-small-ru-0.22](https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip)
    - [vosk-model-ru-0.42](https://alphacephei.com/vosk/models/vosk-model-ru-0.42.zip)
 
