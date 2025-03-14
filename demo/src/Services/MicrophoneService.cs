@@ -204,7 +204,8 @@ namespace VoskDemo.Services
             Console.WriteLine($"\nВыбрано микрофонов: {_devices.Count}");
             foreach (var device in _devices)
             {
-                Console.WriteLine($"- {device.Name}");
+                int i = 1;
+                Console.WriteLine($"{i++} - {device.Name}");
             }
         }
     }

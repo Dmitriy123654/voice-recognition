@@ -17,3 +17,8 @@ release/*
 !release/models/
 release/models/*
 !release/models/.gitkeep
+
+# Docker
+docker/*
+!docker/Dockerfile
+!docker/docker-compose.yml

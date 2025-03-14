@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  vosk-demo:
+    build: 
+      context: ../ # Указываем корневую папку как контекст
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../models:/app/models # Используем общую папку с моделями
+      - ../transcription:/app/transcription
+    # Для Windows используем другой способ доступа к аудио
+    network_mode: host
+    # Временно отключаем для проверки сборки
+    # devices:
+    #   - "/dev/snd:/dev/snd"
+    environment:
+      - DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+    stdin_open: true
+    tty: true 

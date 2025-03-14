@@ -12,14 +12,14 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <PropertyGroup>
     <RestoreSources>
-      <!-- https://api.nuget.org/v3/index.json;
-      $(RestoreSources); -->
+      https://api.nuget.org/v3/index.json;
+      $(RestoreSources);
       ../nuget
-
     </RestoreSources>
   </PropertyGroup>
 
